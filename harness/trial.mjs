@@ -8,7 +8,7 @@ import { NodeExecutionEnv } from "@earendil-works/pi-durable/env/node";
 import { openNodeSqliteStorage } from "@earendil-works/pi-durable/storage/sqlite/node";
 import { execSync } from "node:child_process";
 import { cpSync, existsSync, mkdirSync, writeFileSync } from "node:fs";
-import { join } from "node:path";
+import { join, resolve } from "node:path";
 
 const ctx = BACKGROUND_CONTEXT;
 const HARNESS_VERSION = "0.1.0";
@@ -108,7 +108,7 @@ async function runAgentPass({ dbPath, workdir, models, resolved, model, profile,
  * @returns {Promise<object>} trial record (also written to disk)
  */
 export async function runTrial({ task, model, resolved, models, judge, runDir, repeat, warmup }) {
-  const trialDir = join(runDir, model.id, task.id, `r${repeat}`);
+  const trialDir = join(resolve(runDir), model.id, task.id, `r${repeat}`);
   const workdir = join(trialDir, "work");
   mkdirSync(workdir, { recursive: true });
   // Seed fixture files (e.g. the codebase a planning task must read).

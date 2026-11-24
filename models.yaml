@@ -29,3 +29,11 @@ models:
     model_id: auto
     quant: GSQ-RCO
     thinking_level: medium
+
+  - id: inkling-2-mini-q8
+    family: inkling
+    endpoint: http://spark.infinidigm:8888/v1
+    apiKeyEnv: UNSLOTH_API_KEY
+    model_id: unsloth/Inkling-2-Mini-GGUF
+    quant: UD-Q8_K_XL
+    thinking_level: medium
