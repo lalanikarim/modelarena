@@ -75,6 +75,9 @@ try:
 except Exception as e:
     errors.append(f"regression check failed: {e}")
 
+TOTAL = 10
+passed = TOTAL - len(errors)
+print(f"SCORE: {passed}/{TOTAL}")
 if errors:
     print("FAIL:")
     for e in errors: print(f"  {e}")

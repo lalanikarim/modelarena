@@ -48,6 +48,9 @@ if not is_anagram("listen", "silent"): errors.append("anagram basic")
 if not is_anagram("Listen", "Silent"):
     errors.append("anagram: must be case-insensitive")
 
+TOTAL = 14
+passed = TOTAL - len(errors)
+print(f"SCORE: {passed}/{TOTAL}")
 if errors:
     print(f"FAIL ({len(errors)} issue(s)):")
     for e in errors: print(f"  {e}")

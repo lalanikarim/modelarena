@@ -35,6 +35,9 @@ except ValueError:
 except Exception as e:
     errors.append(f"divide by zero raised {type(e).__name__}, expected ValueError")
 
+TOTAL = 12
+passed = TOTAL - len(errors)
+print(f"SCORE: {passed}/{TOTAL}")
 if errors:
     print("FAIL:")
     for e in errors: print(f"  {e}")

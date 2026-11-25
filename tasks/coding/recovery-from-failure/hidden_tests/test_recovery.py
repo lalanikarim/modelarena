@@ -48,6 +48,9 @@ for key, val in expected.items():
     elif actual != val:
         errors.append(f"{key}: got {actual!r}, expected {val!r}")
 
+TOTAL = 10
+passed = TOTAL - len(errors)
+print(f"SCORE: {passed}/{TOTAL}")
 if errors:
     print("FAIL:")
     for e in errors: print(f"  {e}")
