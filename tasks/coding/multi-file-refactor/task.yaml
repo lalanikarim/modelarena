@@ -1,0 +1,21 @@
+id: multi-file-refactor
+track: coding
+title: "Multi-file feature: add user authentication"
+prompt: |
+  Your working directory contains a small web service (server.py, models.py, config.py). Add a simple token-based authentication feature:
+
+  1. In config.py: add an `auth_tokens` dict mapping token strings to usernames.
+  2. In models.py: add an `authenticate(token, ...) -> username_or_None` function that looks up the token and returns the username, or None if invalid.
+  3. In server.py: modify the `handle_request` function so that any request with a non-empty `Authorization` header must include a valid Bearer token; return 401 with JSON body {"error": "unauthorized"} if missing or invalid. Requests without an Authorization header should still work (public endpoints).
+
+  Keep all existing functionality working. Run the server's built-in self-test (python3 server.py --self-test) to verify.
+tools: coding
+oracle:
+  type: tests
+  hidden_tests:
+    - hidden_tests/test_auth.py
+budget:
+  max_turns: 30
+  max_tokens: 80000
+  timeout_sec: 600
+repeats: 5

@@ -54,7 +54,7 @@ export function aggregate(records) {
         const bp = byModel[B].scored.filter((r) => r.manifest.task_id === t && r.ok).length;
         if (ap > bp) aWins++; else if (bp > ap) bWins++; else ties++;
       }
-      pairs.push({ model_a: A, model_b: B, a_wins, b_wins, ties });
+      pairs.push({ model_a: A, model_b: B, a_wins: aWins, b_wins: bWins, ties });
     }
   }
 

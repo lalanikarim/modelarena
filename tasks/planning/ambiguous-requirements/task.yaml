@@ -1,0 +1,25 @@
+id: ambiguous-requirements
+track: planning
+title: "Plan: make the app faster (ambiguous)"
+prompt: |
+  A colleague sends you this message: "Hey, the dashboard is really slow, can you make it faster? Users are complaining."
+
+  You have no other context — no metrics, no codebase access, no definition of "slow" or "dashboard." Produce a markdown plan that addresses this request professionally. Your plan should demonstrate how you would handle the ambiguity: what questions you'd ask, what assumptions you'd state, what investigation steps you'd take before committing to a solution, and a proposed phased approach.
+
+  Do not invent specific technical solutions without justification from your investigation steps. The quality of your planning process matters more than the specific fixes you propose.
+tools: planning
+oracle:
+  type: plan
+  gates:
+    required_terms: ["assumption", "investigat"]
+    forbidden_terms: []
+    min_words: 150
+  rubric:
+    criteria: [completeness, feasibility, risk_awareness, scope_discipline]
+    weights: { completeness: 0.25, feasibility: 0.25, risk_awareness: 0.25, scope_discipline: 0.25 }
+    pass_threshold: 3
+budget:
+  max_turns: 10
+  max_tokens: 30000
+  timeout_sec: 180
+repeats: 5

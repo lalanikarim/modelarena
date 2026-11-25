@@ -1,0 +1,15 @@
+id: debug-buggy-module
+track: coding
+title: "Debug a buggy module"
+prompt: |
+  The file calculator.py in your working directory has two bugs. Run the existing tests (python3 -m pytest tests/ -v) to see what's failing, identify both bugs, and fix them so all tests pass. Do not modify the test files. Keep the public API unchanged.
+tools: coding
+oracle:
+  type: tests
+  hidden_tests:
+    - hidden_tests/test_calculator.py
+budget:
+  max_turns: 25
+  max_tokens: 60000
+  timeout_sec: 420
+repeats: 5

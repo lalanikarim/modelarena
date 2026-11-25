@@ -1,0 +1,7 @@
+[
+  {"name": "alpha", "value": 10, "category": "A"},
+  {"name": "beta", "value": 25, "category": "B"},
+  {"name": "gamma", "value": 7, "category": "A"},
+  {"name": "delta", "value": 42, "category": "C"},
+  {"name": "epsilon", "value": 15, "category": "B"}
+]

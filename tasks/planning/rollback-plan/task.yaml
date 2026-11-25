@@ -1,0 +1,31 @@
+id: rollback-plan
+track: planning
+title: "Plan: zero-downtime database migration with rollback"
+prompt: |
+  Read the files in your working directory (schema.sql, deploy.sh, README.md). We need to migrate the `orders` table from a single-table design to a normalized schema (orders + order_items) without downtime. The service handles ~500 req/s and cannot tolerate data loss.
+
+  Produce a markdown plan that covers:
+  - Pre-migration checks (what to verify before starting)
+  - Step-by-step migration procedure (expand, migrate, contract pattern)
+  - Rollback criteria: at what point do we abort, and how do we roll back safely
+  - Verification steps after each phase
+  - Communication plan (who to notify, when)
+  - Estimated duration and risk window for each phase
+
+  Do not write SQL or shell scripts — plan only. Reference the specific tables/columns from the fixture.
+tools: planning
+oracle:
+  type: plan
+  gates:
+    required_terms: ["rollback", "order_items", "verif"]
+    forbidden_terms: []
+    min_words: 200
+  rubric:
+    criteria: [completeness, feasibility, risk_awareness, scope_discipline]
+    weights: { completeness: 0.3, feasibility: 0.25, risk_awareness: 0.3, scope_discipline: 0.15 }
+    pass_threshold: 3
+budget:
+  max_turns: 15
+  max_tokens: 40000
+  timeout_sec: 300
+repeats: 5
