@@ -1,0 +1,30 @@
+id: migration-plan
+track: planning
+title: "Plan: Python 3.9 → 3.12 migration"
+prompt: |
+  Read the files in your working directory (app.py, utils.py, requirements.txt, README.md). This project currently targets Python 3.9. Produce a markdown plan to migrate it to Python 3.12.
+
+  The plan must cover:
+  - Which deprecated/removed features in the codebase will break (be specific — cite line numbers or function names)
+  - Ordered migration steps (what to do first, second, third)
+  - New 3.12 features that could simplify the code (optional improvements, clearly marked as such)
+  - Testing strategy: how to verify the migration didn't break anything
+  - Risks and rollback criteria
+
+  Do not write code — plan only.
+tools: planning
+oracle:
+  type: plan
+  gates:
+    required_terms: ["3.12", "test", "deprecat"]
+    forbidden_terms: []
+    min_words: 200
+  rubric:
+    criteria: [completeness, feasibility, risk_awareness, scope_discipline]
+    weights: { completeness: 0.3, feasibility: 0.3, risk_awareness: 0.2, scope_discipline: 0.2 }
+    pass_threshold: 3
+budget:
+  max_turns: 15
+  max_tokens: 40000
+  timeout_sec: 300
+repeats: 5

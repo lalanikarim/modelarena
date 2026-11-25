@@ -1,0 +1,34 @@
+id: implement-from-spec
+track: coding
+title: "Implement csv2json CLI from spec"
+prompt: |
+  Implement a command-line tool called csv2json.py in your working directory. The spec is below. Run it with the test inputs provided to verify correctness before finishing.
+
+  ## Spec: csv2json
+
+  Usage: python3 csv2json.py <input.csv> [--pretty] [--limit N]
+
+  Behaviour:
+  - Reads a CSV file (with header row) and outputs a JSON array of objects to stdout.
+  - Each object maps column names (from the header) to row values.
+  - Values are strings by default, EXCEPT: if a value is a valid integer (matches ^-?\d+$), output it as a JSON number. If a value is a valid float (matches ^-?\d+\.\d+$), output it as a JSON number.
+  - --pretty: indent the JSON output with 2 spaces.
+  - --limit N: only include the first N data rows (header does not count).
+  - Empty input file (no header): output [] and exit 0.
+  - File with only a header row (no data rows): output [].
+  - Malformed row (more fields than header): ignore extra fields silently.
+  - Malformed row (fewer fields than header): fill missing values with empty string "".
+  - If the input file does not exist: print an error to stderr and exit 1.
+  - If the input file is not valid UTF-8: print an error to stderr and exit 1.
+
+  Create a test file sample.csv with at least 5 rows covering: normal data, an integer column, a float column, a row with fewer fields (to test padding), and a row with more fields (to test truncation). Run your tool against it and verify the output is correct JSON.
+tools: coding
+oracle:
+  type: tests
+  hidden_tests:
+    - hidden_tests/test_csv2json.py
+budget:
+  max_turns: 30
+  max_tokens: 80000
+  timeout_sec: 600
+repeats: 5

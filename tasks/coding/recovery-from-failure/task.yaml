@@ -1,0 +1,24 @@
+id: recovery-from-failure
+track: coding
+title: "Recover from broken environment"
+prompt: |
+  Your working directory contains a Python project (main.py, data_processor.py, requirements.txt). When you try to run it (python3 main.py), it fails because a required package is not installed.
+
+  Your task:
+  1. Diagnose why it fails (run it and read the error)
+  2. Fix the environment so the program runs successfully
+     - You may install packages with pip, OR modify the code to use only stdlib alternatives
+     - Prefer the minimal change that makes it work
+  3. Verify the program produces correct output by running it
+
+  The program should print a JSON summary to stdout when run successfully.
+tools: coding
+oracle:
+  type: tests
+  hidden_tests:
+    - hidden_tests/test_recovery.py
+budget:
+  max_turns: 25
+  max_tokens: 60000
+  timeout_sec: 420
+repeats: 5

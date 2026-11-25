@@ -1,0 +1,5 @@
+# Python 3.9 project — migration candidate
+#
+# Dependencies (pinned for 3.9 compatibility):
+aiohttp==3.8.4
+pydantic==1.10.0

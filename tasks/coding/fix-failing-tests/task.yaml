@@ -1,0 +1,15 @@
+id: fix-failing-tests
+track: coding
+title: "Fix a failing test suite"
+prompt: |
+  Your working directory contains a small library (string_utils.py) and its test suite (tests/test_string_utils.py). Currently 3 of 8 tests are failing. Run the tests (python3 -m pytest tests/ -v), diagnose why they fail, and fix string_utils.py so all 8 tests pass. Do NOT modify the test file.
+tools: coding
+oracle:
+  type: tests
+  hidden_tests:
+    - hidden_tests/test_string_utils.py
+budget:
+  max_turns: 25
+  max_tokens: 60000
+  timeout_sec: 420
+repeats: 5

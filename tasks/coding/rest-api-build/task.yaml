@@ -1,0 +1,47 @@
+id: rest-api-build
+track: coding
+title: "Build a REST API (multi-endpoint)"
+prompt: |
+  Create a REST API in a single file called api.py using only the Python standard library (http.server). It must implement these endpoints:
+
+  ## Endpoints
+
+  ### GET /items
+  - Returns a JSON array of all items
+  - Query param ?category=<str> filters by category (case-insensitive)
+  - Query param ?limit=<int> limits results (default: no limit)
+  - 200 on success
+
+  ### GET /items/<id>
+  - Returns a single item as JSON by integer id
+  - 404 with {"error": "not found"} if id doesn't exist
+
+  ### POST /items
+  - Body: JSON object with required fields: name (str, non-empty), category (str, non-empty), price (number > 0)
+  - Creates a new item with auto-incremented id starting at 1
+  - Returns 201 with the created item (including its new id)
+  - 400 with {"error": "<description>"} if validation fails
+
+  ### DELETE /items/<id>
+  - Deletes the item by id
+  - Returns 200 with {"deleted": true}
+  - 404 with {"error": "not found"} if id doesn't exist
+
+  ## Requirements
+  - All responses are JSON with Content-Type: application/json
+  - The server must handle concurrent requests (use ThreadingHTTPServer)
+  - Include a main block that starts the server on port 9700
+  - Accept an optional --port <N> argument to override the port
+  - Include a self_test() function that exercises all endpoints using urllib and prints PASS/FAIL
+
+  Run your self_test() to verify everything works before finishing.
+tools: coding
+oracle:
+  type: tests
+  hidden_tests:
+    - hidden_tests/test_api.py
+budget:
+  max_turns: 40
+  max_tokens: 100000
+  timeout_sec: 900
+repeats: 5
