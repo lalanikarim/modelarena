@@ -111,6 +111,9 @@ for f in ["basic.csv", "limited.csv", "empty.csv", "header_only.csv", "short_row
     path = os.path.join(tempfile.gettempdir(), f"mev_test_{f}")
     if os.path.exists(path): os.remove(path)
 
+TOTAL = 9
+passed = TOTAL - len(errors)
+print(f"SCORE: {passed}/{TOTAL}")
 if errors:
     print(f"FAIL ({len(errors)} issue(s)):")
     for e in errors: print(f"  {e}")

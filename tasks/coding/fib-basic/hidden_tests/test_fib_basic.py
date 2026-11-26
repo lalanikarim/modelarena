@@ -35,6 +35,7 @@ def main() -> int:
             print(f"FAIL: fib relation broken at index {i}: {nums}")
             return 1
     print("PASS")
+    print("SCORE: 5/5")
     return 0
 
 if __name__ == "__main__":

@@ -116,6 +116,9 @@ finally:
     except subprocess.TimeoutExpired:
         proc.kill()
 
+TOTAL = 10
+passed = TOTAL - len(errors)
+print(f"SCORE: {passed}/{TOTAL}")
 if errors:
     print(f"FAIL ({len(errors)} issue(s)):")
     for e in errors: print(f"  {e}")
