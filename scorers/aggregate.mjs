@@ -14,7 +14,7 @@ export function aggregate(records) {
   const byModel = {};
   for (const r of records) {
     const id = r.manifest.model_id;
-    byModel[id] ??= { model: id, family: r.manifest.model_family, quant: r.manifest.quant, scored: [], infra_errors: 0, timeouts: 0 };
+    byModel[id] ??= { model: id, family: r.manifest.model_family, quant: r.manifest.quant, hardware: r.manifest.hardware ?? null, scored: [], infra_errors: 0, timeouts: 0 };
     const b = byModel[id];
     if (r.status === "infra_error") { b.infra_errors++; continue; }
     if (r.status === "timeout") { b.timeouts++; continue; }
@@ -59,6 +59,7 @@ export function aggregate(records) {
       model: b.model,
       family: b.family,
       quant: b.quant,
+      hardware: b.hardware,
       scored_trials: b.scored.length,
       pass_rate: b.scored.length ? b.scored.filter((r) => r.ok).length / b.scored.length : null,
       // Partial credit (from hidden test SCORE lines)

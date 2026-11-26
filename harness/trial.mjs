@@ -121,6 +121,7 @@ export async function runTrial({ task, model, resolved, models, judge, runDir, r
     model_id: model.id,
     model_family: model.family,
     quant: model.quant ?? null,
+    hardware: model.hardware ?? null,
     endpoint: resolved.baseUrl,
     served_model: resolved.modelName,
     temperature: 0.0, // local inference; harness does not set a non-zero temp

@@ -28,6 +28,7 @@ models:
     # endpoint: http://localhost:8000/v1   # defaults to $OPENAI_BASE_URL
     model_id: auto
     quant: GSQ-RCO
+    hardware: RTX 4090
     thinking_level: medium
 
   - id: inkling-2-mini-q8
@@ -36,4 +37,5 @@ models:
     apiKeyEnv: UNSLOTH_API_KEY
     model_id: unsloth/Inkling-2-Mini-GGUF
     quant: UD-Q8_K_XL
+    hardware: DGX Spark
     thinking_level: medium
