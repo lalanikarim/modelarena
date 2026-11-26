@@ -1,0 +1,33 @@
+id: config-migration
+track: coding
+tools: coding
+title: Migrate config from JSON to YAML
+prompt: |
+  This project uses a legacy flat JSON config file (`config.json`) that is loaded by multiple modules.
+  We're migrating to a new nested YAML format (`config.yaml`).
+
+  The new schema maps the old flat keys as follows:
+    - db_host       -> database.host
+    - db_port       -> database.port
+    - db_name       -> database.name
+    - api_key       -> services.api.key
+    - api_endpoint  -> services.api.endpoint
+    - log_level     -> logging.level
+    - log_file      -> logging.file
+
+  Your tasks:
+  1. Create `config.yaml` with the new nested structure, preserving all values from `config.json`.
+  2. Update every file that loads or references the old config to use the new YAML format instead.
+  3. Remove the old `config.json` file.
+  4. The test suite in `tests/` must pass when you're done. Run it to verify.
+
+fixture: .
+oracle:
+  type: tests
+  hidden_tests:
+    - hidden_tests/test_migration.py
+budget:
+  max_turns: 30
+  max_tokens: 100000
+  timeout_sec: 420
+repeats: 5

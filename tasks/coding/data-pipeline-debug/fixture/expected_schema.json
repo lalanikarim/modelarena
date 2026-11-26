@@ -1,0 +1,30 @@
+{
+  "_description": "Expected output.json schema and known-correct values (price * quantity = total_revenue)",
+  "total_items": 9,
+  "grand_total_revenue": 62105.25,
+  "by_category": {
+    "electronics": {
+      "item_count": 3,
+      "total_revenue": 19491.50,
+      "total_quantity": 850,
+      "avg_revenue_per_item": 6497.17
+    },
+    "home": {
+      "item_count": 3,
+      "total_revenue": 16366.25,
+      "total_quantity": 875,
+      "avg_revenue_per_item": 5455.42
+    },
+    "office": {
+      "item_count": 3,
+      "total_revenue": 26247.50,
+      "total_quantity": 250,
+      "avg_revenue_per_item": 8749.17
+    }
+  },
+  "by_tier": {
+    "budget": 3,
+    "mid": 3,
+    "premium": 3
+  }
+}

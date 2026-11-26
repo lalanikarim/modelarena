@@ -1,0 +1,26 @@
+id: secret-rotation
+track: coding
+tools: coding
+title: Rotate hardcoded secrets to environment variables
+prompt: |
+  Security audit found hardcoded secrets scattered across this codebase. You need to rotate them all to use environment variables.
+
+  Rules:
+  1. Find ALL hardcoded secrets (API keys, passwords, tokens, connection strings with embedded credentials).
+  2. Replace each with `os.environ["VAR_NAME"]` or `os.getenv("VAR_NAME")`.
+  3. Choose descriptive variable names (e.g., `STRIPE_API_KEY`, `DB_PASSWORD`, not `SECRET1`).
+  4. Create a `.env.example` file listing all required environment variables with placeholder values and comments.
+  5. The application must still work: run `python3 app.py --check` to verify all modules load correctly.
+
+  Do NOT change any logic or functionality — only externalize the secrets.
+
+fixture: .
+oracle:
+  type: tests
+  hidden_tests:
+    - hidden_tests/test_secrets.py
+budget:
+  max_turns: 30
+  max_tokens: 100000
+  timeout_sec: 420
+repeats: 5

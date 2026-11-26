@@ -1,0 +1,12 @@
+id,name,category,price,quantity
+1001,Widget A,electronics,29.99,150
+1002,Widget B,electronics,49.99,200
+1003,Gadget C,home,19.99,300
+1004,Gadget D,home,24.99,175
+1005,Doohickey E,office,99.99,50
+1006,Doohickey F,office,149.99,75
+1007,Thingamajig G,electronics,9.99,500
+1008,Thingamajig H,home,14.99,400
+-1,Bad Row,electronics,-5.00,10
+1009,,office,29.99,100
+1010,Gizmo I,office,79.99,125

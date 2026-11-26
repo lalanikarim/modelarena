@@ -1,0 +1,9 @@
+{
+  "db_host": "localhost",
+  "db_port": 5432,
+  "db_name": "app_db",
+  "api_key": "sk-legacy-abc123def456",
+  "api_endpoint": "https://api.example.com/v1",
+  "log_level": "INFO",
+  "log_file": "/var/log/app/server.log"
+}
