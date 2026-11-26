@@ -1,0 +1,32 @@
+id: data-pipeline-debug
+track: coding
+tools: coding
+title: Debug a broken data pipeline
+prompt: |
+  This is a 3-stage data processing pipeline that reads `input.csv`, transforms it, and produces `output.json`.
+
+  The pipeline stages are:
+    1. `stage1_clean.py` — removes invalid rows (negative values, missing fields)
+    2. `stage2_transform.py` — applies business logic (category mapping, price normalization)
+    3. `stage3_aggregate.py` — produces summary statistics in `output.json`
+
+  The pipeline is currently broken: running `python3 stage1_clean.py && python3 stage2_transform.py && python3 stage3_aggregate.py` either crashes or produces incorrect output.
+
+  Your task:
+  1. Run the pipeline and identify where it fails or produces wrong results.
+  2. Diagnose the bug(s).
+  3. Fix them so the pipeline runs end-to-end and produces correct `output.json`.
+  4. The expected output format is documented in `expected_schema.json`.
+
+  You can inspect intermediate files (`cleaned.csv`, `transformed.csv`) to trace where values go wrong.
+
+fixture: .
+oracle:
+  type: tests
+  hidden_tests:
+    - hidden_tests/test_pipeline.py
+budget:
+  max_turns: 30
+  max_tokens: 100000
+  timeout_sec: 420
+repeats: 5
